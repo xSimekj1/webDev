@@ -1,8 +1,18 @@
+var fs = require('fs');
+
+fs.readFile('readme.txt', 'utf8', function(err, data) {
+  fs.writeFile('writeMe.txt', data, (err) => {
+    if (err) throw err;
+      console.log('It is saved!');
+ });
+});
+
+/*
 var events = require('events');
 var util = require('util')
 
 var Person = function(name) {
-  this.name = name;
+this.name = name;
 };
 
 util.inherits(Person, events.EventEmitter);
@@ -13,13 +23,14 @@ var vika = new Person('Vika');
 var people = [jakub,filip,vika];
 
 people.forEach(function(Person) {
-  Person.on('speak', function(msg) {
-    console.log(Person.name + ' speak:' + msg);
-  });
+Person.on('speak', function(msg) {
+console.log(Person.name + ' speak:' + msg);
+});
 });
 
 jakub.emit('speak', 'ahoj svet');
-/*
+
+
 var stuff = require('./libs');
 
 console.log(stuff.counter(['shaun', 'crystal', 'ryu']));
